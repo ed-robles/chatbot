@@ -65,7 +65,6 @@ const App = () => {
                 if (e.key === "Enter") getMessages();
               }}
             />
-            <button type="submit" id="submit"></button>
           </form>
         </div>
       </section>
