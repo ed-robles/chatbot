@@ -26,6 +26,7 @@ const App = () => {
 
       setValue(""); // clear the input
       if (inputRef.current) inputRef.current.blur();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
       console.error(error);
     }
