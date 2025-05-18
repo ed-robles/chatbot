@@ -62,7 +62,7 @@ nav p {
 .input-container {
   position: relative;
   width: 100%;
-  max-width: 650px;
+  max-width: 512px;
   margin: 0 auto;
 }
 
@@ -87,8 +87,9 @@ input:focus {
 
 #submit {
   position: absolute;
-  bottom: 0px;
-  right: 0px;
+  right: 0;
+  top: 0;
+  height: 100%;
   cursor: pointer;
   color: #36b1ff;
   background-color: white;
