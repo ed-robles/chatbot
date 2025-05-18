@@ -53,21 +53,26 @@ const App = () => {
           ))}
         </ul>
         <div className="bottom-section">
-          <div className="input-container">
+          <form
+            className="input-container"
+            onSubmit={(e) => {
+              e.preventDefault();
+              getMessages();
+            }}
+          >
             <input
               value={value}
               onChange={(e) => setValue(e.target.value)}
+              placeholder="ask something…"
+              // you can leave or remove this
               onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  getMessages();
-                }
+                if (e.key === "Enter") getMessages();
               }}
-              placeholder="ask something..."
             />
-            <div id="submit" onClick={getMessages}>
+            <button type="submit" id="submit">
               submit
-            </div>
-          </div>
+            </button>
+          </form>
           <p className="info">Conversations are never stored.</p>
         </div>
       </section>
