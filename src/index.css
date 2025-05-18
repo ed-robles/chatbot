@@ -33,9 +33,13 @@ button {
 }
 
 nav {
-  border-top: solid 0.5px black;
+  border-top: solid 0.5px gray;
   padding: 10px;
   margin: 10px;
+}
+
+nav p {
+  color: gray;
 }
 
 .history {
@@ -120,7 +124,7 @@ input:focus {
 .feed li {
   display: flex;
   background-color: #36b1ff;
-  width: 100%;
+  width: 90%;
   padding: 20px;
   margin: 20px 0;
 }
@@ -128,9 +132,10 @@ input:focus {
 .feed p {
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
-  text-align: left;
+  text-align: right;
 }
 
 .feed p.role {
   min-width: 100px;
+  text-align: left;
 }

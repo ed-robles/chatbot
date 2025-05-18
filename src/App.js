@@ -85,20 +85,20 @@ const App = () => {
           ))}
         </ul>
         <nav>
-          <p>Robles Creative Co.</p>
+          <p>Made by Edgar Robles</p>
         </nav>
       </section>
 
       <section className="main">
-        <h1>roblesGPT</h1>
-        {/* <ul className="feed">
+        {!currentTitle && <h1>roblesGPT</h1>}
+        <ul className="feed">
           {currentChat?.map((chatMessage, index) => (
             <li key={index}>
               <p className="role">{chatMessage.role}</p>
               <p>{chatMessage.content}</p>
             </li>
           ))}
-        </ul> */}
+        </ul>
         <div className="bottom-section">
           <div className="input-container">
             <input value={value} onChange={(e) => setValue(e.target.value)} />
@@ -108,7 +108,7 @@ const App = () => {
           </div>
           <p className="info">
             Conversations are not stored. roblesGPT has no recollection of your
-            previous chat.
+            previous chats.
           </p>
         </div>
       </section>
