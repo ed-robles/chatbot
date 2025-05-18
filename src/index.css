@@ -64,11 +64,18 @@ nav p {
 
 .bottom-section {
   width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 100px;
+  background: #fff;
+  z-index: 101;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+  padding: 36px 0;
 }
 
 .input-container {
@@ -147,42 +154,4 @@ input:focus {
 footer {
   display: flex;
   justify-content: center;
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding: 0 4px;
-  }
-
-  .feed {
-    max-width: 100%;
-    margin: 0;
-    padding: 0 0 8px 0;
-  }
-
-  .feed li {
-    margin: 8px 0;
-    padding: 8px 4px;
-  }
-
-  .input-container {
-    max-width: 98vw;
-    padding: 0 2vw;
-  }
-
-  input {
-    font-size: 15px;
-    padding: 8px 6px;
-  }
-
-  #logo {
-    margin-top: 10px;
-    width: 80px !important;
-    height: 80px !important;
-  }
-
-  .bottom-section {
-    margin-top: 10px;
-    padding-bottom: 0;
-  }
 }

@@ -60,7 +60,7 @@ const App = () => {
             <input
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              placeholder="ask something…"
+              placeholder="ask me something…"
               // you can leave or remove this
               onKeyDown={(e) => {
                 if (e.key === "Enter") getMessages();
