@@ -14,7 +14,7 @@ const App = () => {
 
     try {
       const response = await fetch(
-        "https://roblesgpt.com/completions",
+        "http://localhost:8000/completions",
         options
       );
       const data = await response.json();
