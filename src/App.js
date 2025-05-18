@@ -1,32 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const App = () => {
-  const [value, setValue] = useState(null);
-  const [message, setMessage] = useState(null);
+  const [value, setValue] = useState("");
   const [previousChats, setPreviousChats] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState(null);
-
-  const createNewChat = () => {
-    setMessage(null);
-    setValue("");
-    setCurrentTitle(null);
-  };
-
-  const handleClick = (uniqueTitle) => {
-    setCurrentTitle(uniqueTitle);
-    setMessage(null);
-    setValue("");
-  };
 
   const getMessages = async () => {
+    if (!value) return;
     const options = {
       method: "POST",
-      body: JSON.stringify({
-        message: value,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      body: JSON.stringify({ message: value }),
+      headers: { "Content-Type": "application/json" },
     };
 
     try {
@@ -35,80 +18,52 @@ const App = () => {
         options
       );
       const data = await response.json();
-      setMessage(data.choices[0].message);
+      const assistantMessage = data.choices[0].message;
+
+      // overwrite history with only the latest Q&A
+      setPreviousChats([
+        { role: "user", content: value },
+        { role: assistantMessage.role, content: assistantMessage.content },
+      ]);
+
+      setValue(""); // clear the input
     } catch (error) {
       console.error(error);
     }
   };
 
-  useEffect(() => {
-    console.log(currentTitle, value, message);
-    if (!currentTitle && value && message) {
-      setCurrentTitle(value);
-    }
-    if (currentTitle && value && message) {
-      setPreviousChats((prevChats) => [
-        ...prevChats,
-        {
-          title: currentTitle,
-          role: "user",
-          content: value,
-        },
-        {
-          title: currentTitle,
-          role: message.role,
-          content: message.content,
-        },
-      ]);
-    }
-  }, [message, currentTitle]);
-
-  console.log(previousChats);
-
-  const currentChat = previousChats.filter(
-    (previousChats) => previousChats.title === currentTitle
-  );
-  const uniqueTitles = Array.from(
-    new Set(previousChats.map((previousChat) => previousChat.title))
-  );
-  console.log(uniqueTitles);
-
   return (
     <div className="app">
-      <section className="side-bar">
-        <button onClick={createNewChat}>+ New chat</button>
-        <ul className="history">
-          {uniqueTitles?.map((uniqueTitle, index) => (
-            <li key={index} onClick={() => handleClick(uniqueTitle)}>
-              {uniqueTitle}
-            </li>
-          ))}
-        </ul>
-        <nav>
-          <p>Made by Edgar Robles</p>
-        </nav>
-      </section>
-
       <section className="main">
-        <h1>roblesGPT</h1>
+        <div id="logo">
+          <img
+            src="RCC_circle_white.png"
+            width={128}
+            height={128}
+            alt="RCC Circle Logo"
+            className="animate-spin-slow"
+          />
+        </div>
         <ul className="feed">
-          {currentChat?.map((chatMessage, index) => (
-            <li key={index}>
-              <p className="role">{chatMessage.role}</p>
-              <p>{chatMessage.content}</p>
+          {previousChats.map((msg, i) => (
+            <li key={i}>
+              {/* <p className="role">{msg.role}</p> */}
+              <p>{msg.content}</p>
             </li>
           ))}
         </ul>
         <div className="bottom-section">
           <div className="input-container">
-            <input value={value} onChange={(e) => setValue(e.target.value)} />
+            <input
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              placeholder="ask something..."
+            />
             <div id="submit" onClick={getMessages}>
               submit
             </div>
           </div>
-          <p className="info">
-            Conversations are not stored. History is erased after refresh.
-          </p>
+          <p className="info">Chats are never stored.</p>
         </div>
       </section>
     </div>

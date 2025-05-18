@@ -16,7 +16,17 @@ app.post("/completions", async (req, res) => {
     },
     body: JSON.stringify({
       model: "gpt-4.1-mini",
-      messages: [{ role: "user", content: req.body.message }],
+      messages: [
+        {
+          role: "user",
+          content: req.body.message,
+        },
+        {
+          role: "system",
+          content:
+            "Users are expected to submit random questions, one at a time. Responses should never be longer than 2 sentences. If the user asks for a list, provide a list of no more than 5 items.",
+        },
+      ],
     }),
   };
 
@@ -31,7 +41,5 @@ app.post("/completions", async (req, res) => {
     console.error(error);
   }
 });
-
-console.log("hi");
 
 app.listen(PORT, () => console.log("Your server is running on PORT " + PORT));
