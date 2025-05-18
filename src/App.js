@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { CircleArrowUp } from "lucide-react";
 
 const App = () => {
   const [value, setValue] = useState("");
@@ -60,6 +59,7 @@ const App = () => {
             <input
               value={value}
               onChange={(e) => setValue(e.target.value)}
+              placeholder="press enter to send..."
               // you can leave or remove this
               onKeyDown={(e) => {
                 if (e.key === "Enter") getMessages();
