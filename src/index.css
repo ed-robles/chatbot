@@ -129,6 +129,7 @@ input:focus {
   color: black;
   padding: 12px;
   margin: 24px;
+  color: #009dff;
 }
 
 .feed p {
@@ -174,6 +175,5 @@ footer {
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    color: #009dff;
   }
 }
