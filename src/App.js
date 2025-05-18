@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CircleArrowUp } from "lucide-react";
 
 const App = () => {
   const [value, setValue] = useState("");
@@ -66,12 +67,12 @@ const App = () => {
               }}
             />
             <button type="submit" id="submit">
-              submit
+              <CircleArrowUp />
             </button>
           </form>
-          <p className="info">Conversations are never stored.</p>
         </div>
       </section>
+      <p className="info">Conversations are never stored.</p>
     </div>
   );
 };

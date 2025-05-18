@@ -5,13 +5,15 @@
 }
 
 body {
-  margin: 0;
+  margin: 10px;
   padding: 0;
 }
 
 .app {
   background-color: #ffffff;
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 nav {
@@ -37,7 +39,7 @@ nav p {
 }
 
 .main {
-  width: 100%;
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,6 +50,7 @@ nav p {
   color: black;
   font-size: 11px;
   padding: 10px;
+  text-align: center;
 }
 
 .bottom-section {
@@ -61,14 +64,14 @@ nav p {
 
 .input-container {
   position: relative;
-  width: 100%;
-  max-width: 512px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 input {
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   background-color: white;
   padding: 10px;
   color: black;
@@ -86,16 +89,10 @@ input:focus {
 }
 
 #submit {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
   cursor: pointer;
   color: #36b1ff;
-  background-color: white;
+  background-color: transparent;
   font-size: small;
-  padding: 10px;
-  border-radius: 5px;
   border: none;
 }
 
