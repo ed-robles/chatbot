@@ -90,7 +90,7 @@ const App = () => {
       </section>
 
       <section className="main">
-        {!currentTitle && <h1>roblesGPT</h1>}
+        <h1>roblesGPT</h1>
         <ul className="feed">
           {currentChat?.map((chatMessage, index) => (
             <li key={index}>
