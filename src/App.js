@@ -57,6 +57,11 @@ const App = () => {
             <input
               value={value}
               onChange={(e) => setValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  getMessages();
+                }
+              }}
               placeholder="ask something..."
             />
             <div id="submit" onClick={getMessages}>
