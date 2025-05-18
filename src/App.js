@@ -107,8 +107,7 @@ const App = () => {
             </div>
           </div>
           <p className="info">
-            Conversations are not stored. roblesGPT has no recollection of your
-            previous chats.
+            Conversations are not stored. History is erased after refresh.
           </p>
         </div>
       </section>
