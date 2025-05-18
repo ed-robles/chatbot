@@ -63,7 +63,7 @@ const App = () => {
               submit
             </div>
           </div>
-          <p className="info">Chats are never stored.</p>
+          <p className="info">Conversations are never stored.</p>
         </div>
       </section>
     </div>

@@ -24,7 +24,7 @@ app.post("/completions", async (req, res) => {
         {
           role: "system",
           content:
-            "Users are expected to submit random questions, one at a time. Responses should never be longer than 2 sentences. If the user asks for a list, provide a list of no more than 5 items.",
+            "Users are expected to submit random questions, one at a time. Responses should never be longer than 4 sentences. If the user asks for a list, provide a list of no more than 5 items.",
         },
       ],
     }),
