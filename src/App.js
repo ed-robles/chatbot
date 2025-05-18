@@ -60,19 +60,16 @@ const App = () => {
             <input
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              placeholder="ask me something…"
               // you can leave or remove this
               onKeyDown={(e) => {
                 if (e.key === "Enter") getMessages();
               }}
             />
-            <button type="submit" id="submit">
-              <CircleArrowUp />
-            </button>
+            <button type="submit" id="submit"></button>
           </form>
         </div>
       </section>
-      <p className="info">Chats are never stored.</p>
+      <p className="info">Created by Edgar Robles 🧑‍💻</p>
     </div>
   );
 };
