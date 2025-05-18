@@ -34,11 +34,10 @@ const App = () => {
       <section className="main">
         <div id="logo">
           <img
-            src="RCC_circle_white.png"
+            src="logo192.png"
             width={128}
             height={128}
             alt="RCC Circle Logo"
-            className="animate-spin-slow"
           />
         </div>
         <ul className="feed">
