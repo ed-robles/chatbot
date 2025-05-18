@@ -1,6 +1,18 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { Draggable } from "gsap/Draggable";
+import { InertiaPlugin } from "gsap/src/InertiaPlugin";
+
+gsap.registerPlugin(Draggable, InertiaPlugin);
 
 const App = () => {
+  useEffect(() => {
+    Draggable.create("#logo", {
+      type: "rotation",
+      inertia: true,
+    });
+  }, []);
+
   const [value, setValue] = useState("");
   const [previousChats, setPreviousChats] = useState([]);
   const inputRef = useRef(null);
