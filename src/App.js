@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const App = () => {
   const [value, setValue] = useState("");
   const [previousChats, setPreviousChats] = useState([]);
+  const inputRef = useRef(null);
 
   const getMessages = async () => {
     if (!value) return;
@@ -24,6 +25,7 @@ const App = () => {
       ]);
 
       setValue(""); // clear the input
+      if (inputRef.current) inputRef.current.blur();
     } catch (error) {
       console.error(error);
     }
@@ -57,6 +59,7 @@ const App = () => {
             }}
           >
             <input
+              ref={inputRef}
               value={value}
               onChange={(e) => setValue(e.target.value)}
               placeholder="press enter to send..."
