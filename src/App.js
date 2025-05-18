@@ -13,10 +13,7 @@ const App = () => {
     };
 
     try {
-      const response = await fetch(
-        "http://localhost:8000/completions",
-        options
-      );
+      const response = await fetch("http://roblesgpt.com/completions", options);
       const data = await response.json();
       const assistantMessage = data.choices[0].message;
 
