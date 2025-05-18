@@ -14,7 +14,7 @@ const App = () => {
 
     try {
       const response = await fetch(
-        "https://roblesgpt.com/completions",
+        "https://www.roblesgpt.com/completions",
         options
       );
       const data = await response.json();
