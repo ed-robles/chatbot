@@ -8,8 +8,8 @@ gsap.registerPlugin(Draggable, InertiaPlugin);
 const App = () => {
   useEffect(() => {
     Draggable.create("#logo", {
-      type: "rotation",
       inertia: true,
+      bounds: ".main",
     });
   }, []);
 
