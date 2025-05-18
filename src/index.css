@@ -148,3 +148,41 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 600px) {
+  .main {
+    padding: 0 4px;
+  }
+
+  .feed {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 0 8px 0;
+  }
+
+  .feed li {
+    margin: 8px 0;
+    padding: 8px 4px;
+  }
+
+  .input-container {
+    max-width: 98vw;
+    padding: 0 2vw;
+  }
+
+  input {
+    font-size: 15px;
+    padding: 8px 6px;
+  }
+
+  #logo {
+    margin-top: 10px;
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .bottom-section {
+    margin-top: 10px;
+    padding-bottom: 0;
+  }
+}
