@@ -13,7 +13,7 @@ const App = () => {
     };
 
     try {
-      const response = await fetch("/completions", options);
+      const response = await fetch("/api/completions", options);
       const data = await response.json();
       const assistantMessage = data.choices[0].message;
 

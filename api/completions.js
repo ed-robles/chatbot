@@ -1,13 +1,10 @@
-const PORT = 8000;
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
-const app = express();
-app.use(express.json());
-app.use(cors());
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return res.status(405).end("Method Not Allowed");
+  }
 
-const API_KEY = process.env.API_KEY;
-app.post("/completions", async (req, res) => {
+  const API_KEY = process.env.API_KEY;
   const options = {
     method: "POST",
     headers: {
@@ -36,10 +33,9 @@ app.post("/completions", async (req, res) => {
       options
     );
     const data = await response.json();
-    res.send(data);
+    res.status(200).json(data);
   } catch (error) {
     console.error(error);
+    res.status(500).json({ error: "Something went wrong." });
   }
-});
-
-app.listen(PORT, () => console.log("Your server is running on PORT " + PORT));
+}
